@@ -1,0 +1,7 @@
+tensorflow==2.12.1
+aucmedi==0.8.1
+tqdm==4.64.0
+pandas==1.5.0
+numpy==1.23.0
+pyvips==2.2.1
+kaggle==1.5.16
