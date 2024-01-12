@@ -14,10 +14,10 @@ Artifact - Sponge, Artifact Dirt, PIN, precursor or unclear tissue, Regular Tiss
 **Input**: 
 - Whole-slide image of prostata cancer
 - DeepGleason deep neural network model
+
 **Output**: 
 - BigTiff of computed classes as overlay
 - CSV file containing class predictions & confidence for each tile
-
 
 ```sh
 usage: scripts/pred_cli.py [-h] [-g GPU] [--cache CACHE] -i INPUT [-o OUTPUT] [--model MODEL] [--generate_overlay] [-p PREDICTION]
@@ -42,8 +42,8 @@ optional arguments:
 
 Download Git repository:
 ```sh
-git clone https://github.com/frankkramer-lab/IHAG-HNU.aucmedi.git
-cd IHAG-HNU.aucmedi/
+git clone https://github.com/frankkramer-lab/DeepGleason.git
+cd DeepGleason/
 ```
 
 This repository contains `requirements.txt`. Use it to install the dependencies as such:
