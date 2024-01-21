@@ -95,14 +95,12 @@ def class_reassemble(max_X, max_Y, slide_name, df_res, PATCH_SIZE):
                 small_version[x, y] = [0, 0, 0]  # White
             elif samp == "R":
                 small_version[x, y] = [0, 1, 0]  # Green
-            elif samp == "Q":
-                small_version[x, y] = [0, 1, 1]  # Cyan
             elif samp == "G3":
-                small_version[x, y] = [1, 1, 0]  # Yellow
+                small_version[x, y] = [1, 1, 0]     # Yellow
             elif samp == "G4":
-                small_version[x, y] = [1, 0.5, 0]  # Orange
+                small_version[x, y] = [1, 0.5, 0]   # Orange
             elif samp == "G5":
-                small_version[x, y] = [1, 0, 0]  # Red
+                small_version[x, y] = [1, 0, 0]     # Red
 
             cntr.update(1)
     del cntr

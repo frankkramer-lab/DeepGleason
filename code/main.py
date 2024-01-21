@@ -131,7 +131,7 @@ MODEL = args.model
 
 
 config = {}
-COL_NAMES = ["A_S", "A_D", "R", "Q", "G3", "G4", "G5"]
+COL_NAMES = ["A_S", "A_D", "R", "G3", "G4", "G5"]
 
 # pyvips.cache_set_max_mem(0) #This may be necessary to cache operations. 
 # On the other hand this is incredibly useful to accelerate null computations

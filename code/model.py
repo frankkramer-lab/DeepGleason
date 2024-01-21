@@ -20,35 +20,33 @@
 # -----------------------------------------------------#
 import pandas as pd
 import tensorflow as tf
-
+from PIL import Image
 # AUCMEDI libraries
 from aucmedi import DataGenerator, NeuralNetwork
 from aucmedi.data_processing.subfunctions import Padding
+from stain_normalization import StainNormalization
 
 # -----------------------------------------------------#
 #                   AUCMEDI Pipeline                   #
 # -----------------------------------------------------#
-COL_NAMES = ["A_S", "A_D", "R", "Q", "G3", "G4", "G5"]
+COL_NAMES = ["A_S", "A_D", "R", "G3", "G4", "G5"]
 
 def run_aucmedi(x, architecture, config):
     # Define Subfunctions
-    sf_list = [Padding(mode="square")]
-    # Set activation output to softmax for multi-class classification
-    activation_output = "softmax"
+    target_image = Image.open("stainnormalize_target.png")
+    sf_list = [Padding(mode="square"), StainNormalization(target_image)]
 
     # Initialize model
     model = NeuralNetwork(
         config["nclasses"],
         channels=3,
-        architecture="2D.ResNeXt101",
-        multiprocessing=False,
-        activation_output=activation_output,
+        architecture="2D.ConvNeXtLarge"
     )
 
-    # Dump latest model
-    model.load(architecture)
+    # Load model
+    model.model.load_weights(architecture)
 
-    # Initialize training and validation Data Generators
+    # Initialize Data Generator
     gen = DataGenerator(
         x,
         config["path_images"],
