@@ -40,20 +40,20 @@ ADD . /root/DeepGleason
 
 # Install required software dependencies (cv2)
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends python3-opencv && \
+    apt-get install -y --no-install-recommends python3-opencv libvips-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Update Python pip
 RUN python -m pip install pip --upgrade
 
-# Install AUCMEDI from local git repo
+# Install DeepGleason from local git repo
 RUN pip install -r /root/DeepGleason/requirements.txt
 
 # Create working directory
 VOLUME ["/data"]
-WORKDIR /data
+WORKDIR "/root/DeepGleason/"
 
 #-----------------------------------------------------#
 #                       Startup                       #
 #-----------------------------------------------------#
-ENTRYPOINT ["/root/DeepGleason/code/main.py"]
+ENTRYPOINT ["code/main.py"]
