@@ -53,6 +53,7 @@ Download Git repository:
 ```sh
 git clone https://github.com/frankkramer-lab/DeepGleason.git
 cd DeepGleason/
+git lfs pull
 ```
 
 This repository contains `requirements.txt`. Use it to install the dependencies as such:
