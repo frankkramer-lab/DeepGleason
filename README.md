@@ -4,12 +4,21 @@ Welcome to DeepGleason, an advanced software solution developed for inferring Gl
 
 ![viz](docs/viz.png)
 
-It computes a one of the following 7 classes per 1024 x 1024 tile: 
+It computes a one of the following 6 classes per 1024 x 1024 tile: 
 Artifact - Sponge, Artifact Dirt, PIN, precursor or unclear tissue, Regular Tissue, Gleason 3, Gleason 4, Gleason 5
 
 ![viz](docs/samples.png)
 
 ## Usage
+
+**Example:**  
+```sh
+cd DeepGleason/
+python code/main.py   --input /sandbox/9f3fae7a6ff12c76fbbf89b9c50c66b6.ome.tiff \
+                      --output /sandbox/ \
+                      --model models/model.ConvNeXtBase.hdf5 \
+                      -p /sandbox/predictions.csv
+```
 
 **Input**: 
 - Whole-slide image of prostata cancer
@@ -20,7 +29,7 @@ Artifact - Sponge, Artifact Dirt, PIN, precursor or unclear tissue, Regular Tiss
 - CSV file containing class predictions & confidence for each tile
 
 ```sh
-usage: scripts/pred_cli.py [-h] [-g GPU] [--cache CACHE] -i INPUT [-o OUTPUT] [--model MODEL] [--generate_overlay] [-p PREDICTION]
+usage: code/main.py [-h] [-g GPU] [--cache CACHE] -i INPUT [-o OUTPUT] [--model MODEL] [--generate_overlay] [-p PREDICTION]
 
 DeepGleason: Prediction
 
@@ -60,7 +69,7 @@ This program utilizes the PyVIPS library to load and store images and AUCMEDI to
 The implemented medical image classification pipeline can be summarized in the following core steps:
 - Slide preparation with PyVIPS: 1024x1024 pixel tiles
 - Tile preprocessing: Padding, resize, pixel intensity normalization
-- Deep Learning model architecture: ResNeXt101
+- Deep Learning model architecture: ConvNeXt
 - Slide reconstruction to bigTIFF overlay
 
 ![workflow](docs/workflow.png)
