@@ -1,6 +1,6 @@
 # =============================================================================#
 #  Author:       Dominik Müller, Philip Meyer                                  #
-#  Copyright:    2023 AG-RAIMIA-Müller, University of Augsburg                 #
+#  Copyright:    2024 AG-RAIMIA-Müller, University of Augsburg                 #
 #                                                                              #
 #  This program is free software: you can redistribute it and/or modify        #
 #  it under the terms of the GNU General Public License as published by        #
