@@ -38,7 +38,7 @@ class DeepGleasonModels(unittest.TestCase):
 
     def test_model_DenseNet121_load(self):
         path_model = os.path.join("models/model.DenseNet121.hdf5")
-        model = NeuralNetwork(n_labels=7, channels=3)
+        model = NeuralNetwork(n_labels=6, channels=3)
         model.load(path_model)
         model.model.summary()
 
@@ -49,6 +49,6 @@ class DeepGleasonModels(unittest.TestCase):
 
     def test_model_ConvNeXtBase_load(self):
         path_model = os.path.join("models/model.ConvNeXtBase.hdf5")
-        model = NeuralNetwork(n_labels=7, channels=3, architecture="2D.ConvNeXtBase")
+        model = NeuralNetwork(n_labels=6, channels=3, architecture="2D.ConvNeXtBase")
         model.model.load_weights(path_model)
         model.model.summary()
