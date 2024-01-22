@@ -79,7 +79,7 @@ class DeepGleasonUsage(unittest.TestCase):
         path_wsi = os.path.join(self.tmp_data.name, testing_file.split("/")[-1])
         path_output = os.path.join(self.tmp_data.name)
         path_preds = os.path.join(self.tmp_data.name, "preds.csv")
-        path_model = os.path.join("model", "DeepGleason.model.DenseNet121.hdf5")
+        path_model = os.path.join("models", "model.DenseNet121.hdf5")
         res = os.system("python code/main.py -i " + path_wsi + " -o " + \
                         path_output + " --model " + path_model + \
                         " -p " + path_preds)
@@ -96,7 +96,7 @@ class DeepGleasonUsage(unittest.TestCase):
         path_wsi = os.path.join(self.tmp_data.name, testing_file.split("/")[-1])
         path_output = os.path.join(self.tmp_data.name)
         path_preds = os.path.join(self.tmp_data.name, "preds.csv")
-        path_model = os.path.join("model", "DeepGleason.model.DenseNet121.hdf5")
+        path_model = os.path.join("models", ".model.DenseNet121.hdf5")
         res = os.system("python code/main.py -i " + path_wsi + " -o " + \
                         path_output + " --model " + path_model + \
                         " -p " + path_preds + " --generate_overlay")

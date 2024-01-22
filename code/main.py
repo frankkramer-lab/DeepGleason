@@ -1,6 +1,6 @@
 # =============================================================================#
 #  Author:       Dominik Müller, Philip Meyer                                  #
-#  Copyright:    2023 AG-RAIMIA-Müller, University of Augsburg                 #
+#  Copyright:    2024 AG-RAIMIA-Müller, University of Augsburg                 #
 #                                                                              #
 #  This program is free software: you can redistribute it and/or modify        #
 #  it under the terms of the GNU General Public License as published by        #
@@ -131,7 +131,7 @@ MODEL = args.model
 
 
 config = {}
-COL_NAMES = ["A_S", "A_D", "R", "Q", "G3", "G4", "G5"]
+COL_NAMES = ["A_S", "A_D", "R", "G3", "G4", "G5"]
 
 # pyvips.cache_set_max_mem(0) #This may be necessary to cache operations. 
 # On the other hand this is incredibly useful to accelerate null computations
