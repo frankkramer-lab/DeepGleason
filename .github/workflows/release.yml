@@ -49,7 +49,7 @@ jobs:
         uses: actions/create-release@v1
         with:
           tag_name: ${{ github.ref }}
-          release_name: aucmedi_${{ github.ref }}
+          release_name: DeepGleason_${{ github.ref }}
           body: ${{ steps.changelog.outputs.changes }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
