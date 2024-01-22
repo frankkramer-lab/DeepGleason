@@ -1,6 +1,6 @@
 # =============================================================================#
 #  Author:       Dominik Müller, Philip Meyer                                  #
-#  Copyright:    2023 AG-RAIMIA-Müller, University of Augsburg                 #
+#  Copyright:    2024 AG-RAIMIA-Müller, University of Augsburg                 #
 #                                                                              #
 #  This program is free software: you can redistribute it and/or modify        #
 #  it under the terms of the GNU General Public License as published by        #
@@ -21,7 +21,7 @@
 import os
 import pyvips
 
-os.environ["VIPS_CONCURRENCY"] = "64"
+os.environ["VIPS_CONCURRENCY"] = "0"
 import numpy as np
 import pandas as pd
 import math
@@ -30,12 +30,14 @@ from tqdm import tqdm
 #------------------------------------------------------#
 #             Processing Utility Functions             #
 #------------------------------------------------------#
-def eval_cb(image, progress):
-    print(f"\reval: percent = {progress.percent}", end="\n")
-
+def eval_handler(image, progress):
+    print('run time so far (secs) = {}'.format(progress.run))
+    print('estimated time of arrival (secs) = {}'.format(progress.eta))
+    print('total number of pels to process = {}'.format(progress.tpels))
+    print('number of pels processed so far = {}'.format(progress.npels))
+    print('percent complete = {}'.format(progress.percent))
 
 def gen_tiles(patch_path, slide, name, PATCH_SIZE):
-    os.environ["VIPS_CONCURRENCY"] = "128"
     props = {
         "compression": "jpeg",
         "xres": 4000,
@@ -53,9 +55,8 @@ def gen_tiles(patch_path, slide, name, PATCH_SIZE):
     img = img_r.bandjoin([img_g, img_b])
     img = img.copy(interpretation="rgb")
 
-    img.set_progress(True)
-    # img.signal_connect('preeval', preeval_cb)
-    img.signal_connect("eval", eval_cb)
+    #img.set_progress(True)
+    #img.signal_connect("eval", eval_handler)
 
     width = img.width
     height = img.height

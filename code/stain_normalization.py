@@ -1,6 +1,6 @@
 #==============================================================================#
 #  Author:       Dominik Müller                                                #
-#  Copyright:    2023 AG-RAIMIA-Müller, University of Augsburg,                #
+#  Copyright:    2024 AG-RAIMIA-Müller, University of Augsburg,                #
 #                University of Augsburg                                        #
 #                                                                              #
 #  This program is free software: you can redistribute it and/or modify        #

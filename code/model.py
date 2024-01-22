@@ -1,6 +1,6 @@
 # =============================================================================#
 #  Author:       Dominik Müller, Philip Meyer                                  #
-#  Copyright:    2023 AG-RAIMIA-Müller, University of Augsburg                 #
+#  Copyright:    2024 AG-RAIMIA-Müller, University of Augsburg                 #
 #                                                                              #
 #  This program is free software: you can redistribute it and/or modify        #
 #  it under the terms of the GNU General Public License as published by        #
@@ -21,6 +21,7 @@
 import pandas as pd
 import tensorflow as tf
 from PIL import Image
+import os
 # AUCMEDI libraries
 from aucmedi import DataGenerator, NeuralNetwork
 from aucmedi.data_processing.subfunctions import Padding
@@ -32,15 +33,23 @@ from stain_normalization import StainNormalization
 COL_NAMES = ["A_S", "A_D", "R", "G3", "G4", "G5"]
 
 def run_aucmedi(x, architecture, config):
+    # Load stain normalization
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    path_stain_target = os.path.join(dir_path, "stainnormalize_target.png")
+    target_image = Image.open(path_stain_target)
     # Define Subfunctions
-    target_image = Image.open("stainnormalize_target.png")
     sf_list = [Padding(mode="square"), StainNormalization(target_image)]
+
+    # identify architecture
+    arch_name = architecture.split(".")[-2]
 
     # Initialize model
     model = NeuralNetwork(
         config["nclasses"],
         channels=3,
-        architecture="2D.ConvNeXtLarge"
+        architecture="2D." + arch_name,
+        workers=16, 
+        multiprocessing=True,
     )
 
     # Load model
@@ -60,6 +69,7 @@ def run_aucmedi(x, architecture, config):
         sample_weights=None,
         seed=123,
         image_format=config["image_format"],
+        workers=6,
     )
 
     # generate predictions
