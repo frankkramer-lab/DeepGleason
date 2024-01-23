@@ -112,7 +112,7 @@ APPEND_PREDICTIONS = os.path.exists(args.prediction)
 PREDICTION_PATH = args.prediction
 
 INPUTS = args.input
-if os.path.isdir(INPUTS[0]) : INPUTS = os.listdir(INPUTS[0])
+if os.path.isdir(INPUTS[0]) : INPUTS = [os.path.join(INPUTS[0], x) for x in os.listdir(INPUTS[0])]
 
 RES_PATH = args.output  # location of full slides
 if not os.path.exists(RES_PATH):
