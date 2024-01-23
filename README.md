@@ -17,7 +17,7 @@ cd DeepGleason/
 python code/main.py   --input /sandbox/9f3fae7a6ff12c76fbbf89b9c50c66b6.ome.tiff \
                       --output /sandbox/ \
                       --model models/model.ConvNeXtBase.hdf5 \
-                      -p /sandbox/predictions.csv
+                      --predictions /sandbox/predictions.csv
 ```
 
 **Input**: 
