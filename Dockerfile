@@ -44,7 +44,8 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install & Update Python pip
-RUN python3.10 -m ensurepip
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python3.10 get-pip.py
 RUN python3.10 -m pip install pip --upgrade
 
 # Install DeepGleason from local git repo
