@@ -43,7 +43,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends python3-opencv libvips-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Update Python pip
+# Install & Update Python pip
+RUN python3.10 -m ensurepip
 RUN python3.10 -m pip install pip --upgrade
 
 # Install DeepGleason from local git repo
