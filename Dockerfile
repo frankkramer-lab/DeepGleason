@@ -40,7 +40,7 @@ ADD . /root/DeepGleason
 
 # Install required software dependencies (cv2)
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends python3-opencv libvips-dev && \
+    apt-get install -y --no-install-recommends python3-dev python3-opencv libpython3.10-dev libvips-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install & Update Python pip
