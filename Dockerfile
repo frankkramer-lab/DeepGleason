@@ -44,10 +44,10 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Update Python pip
-RUN python -m pip install pip --upgrade
+RUN python3.10 -m pip install pip --upgrade
 
 # Install DeepGleason from local git repo
-RUN pip install -r /root/DeepGleason/requirements.txt
+RUN python3.10 -m pip install -r /root/DeepGleason/requirements.txt
 
 # Create working directory
 VOLUME ["/data"]
@@ -56,4 +56,4 @@ WORKDIR "/root/DeepGleason/"
 #-----------------------------------------------------#
 #                       Startup                       #
 #-----------------------------------------------------#
-ENTRYPOINT ["code/main.py"]
+ENTRYPOINT ["python3.10 code/main.py --input /data/ --output /data/ --model models/model.ConvNeXtBase --predictions /data/predictions.csv"]
