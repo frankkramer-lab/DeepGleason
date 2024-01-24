@@ -1,5 +1,9 @@
 # DeepGleason: a System for Automated Gleason Grading of Prostate Cancer using Deep Neural Networks
 
+[![shield_python](https://img.shields.io/pypi/pyversions/DeepGleason?style=flat-square)](https://www.python.org/)
+[![shield_build](https://img.shields.io/github/actions/workflow/status/frankkramer-lab/DeepGleason/build-package.yml?branch=master&style=flat-square)](https://github.com/frankkramer-lab/DeepGleason)
+[![shield_license](https://img.shields.io/github/license/frankkramer-lab/DeepGleason?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
 Welcome to DeepGleason, an advanced software solution developed for inferring Gleason grading in prostate whole-slide images using a deep neural network. Our API is designed to assist pathologists and researchers in accurately analyzing and grading prostate tissue samples. With a focus on precision and efficiency, DeepGleason integrates seamlessly into existing workflows, providing a reliable tool for enhancing the diagnostic process. Explore the capabilities of our software and streamline your prostate cancer assessment with DeepGleason's neutral and effective approach to Gleason grading.
 
 ![viz](docs/viz.png)
@@ -45,6 +49,26 @@ optional arguments:
   --generate_overlay    merge prediction distribution with base image as overlay
   -p PREDICTION, --predictions PREDICTION
                         output CSV containing predicted soft labels
+```
+
+**Docker Usage:**  
+
+```sh
+# Pull the image from the Container Registry
+docker pull ghcr.io/frankkramer-lab/deepgleason
+
+# Create a data directory and move whole-image slides into it
+mkdir /home/main/DeepGleason.data
+mv my_slide_1.tiff /home/main/DeepGleason.data/
+mv my_slide_2.tiff /home/main/DeepGleason.data/
+mv my_slide_3.tiff /home/main/DeepGleason.data/
+
+# Run the DeepGleason container
+docker run \
+  -v /home/main/DeepGleason.data:/data --rm \
+  ghcr.io/frankkramer-lab/deepgleason
+
+## all results will be stored in the created DeepGleason.data directory
 ```
 
 ## Installation
