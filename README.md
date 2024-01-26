@@ -9,7 +9,7 @@ Welcome to DeepGleason, an advanced software solution developed for inferring Gl
 ![viz](docs/viz.png)
 
 It computes a one of the following 6 classes per 1024 x 1024 tile: 
-Artifact - Sponge, Artifact Dirt, PIN, precursor or unclear tissue, Regular Tissue, Gleason 3, Gleason 4, Gleason 5
+Artefact Sponge, Artefact Empty (including unclear tissue), Regular Tissue, Gleason 3, Gleason 4, Gleason 5
 
 ![viz](docs/samples.png)
 
@@ -94,7 +94,7 @@ This program utilizes the PyVIPS library to load and store images and AUCMEDI to
 The implemented medical image classification pipeline can be summarized in the following core steps:
 - Slide preparation with PyVIPS: 1024x1024 pixel tiles
 - Tile preprocessing: Padding, resize, pixel intensity normalization
-- Deep Learning model architecture: ConvNeXt
+- Deep Learning model architecture: ConvNeXtBase
 - Slide reconstruction to bigTIFF overlay
 
 ![workflow](docs/workflow.png)
@@ -113,7 +113,9 @@ This pipeline was based on AUCMEDI, which is an in-house developed open-source f
 
 We were able to achieve a strong model for Gleason grading in prostata cancer.
 
-![performance](docs/performance.png)
+ROC Curve    |  Confusion Matrix
+:-------------------------:|:-------------------------:
+<img src="docs/roc.png" alt="fig_roc" width="512" height="512"> | <img src="docs/cm.png" alt="fig_cm" width="512" height="512">
 
 ## Additional Notes
 
