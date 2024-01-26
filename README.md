@@ -115,7 +115,7 @@ We were able to achieve a strong model for Gleason grading in prostata cancer.
 
 ROC Curve    |  Confusion Matrix
 :-------------------------:|:-------------------------:
-<img src="docs/roc.png" alt="fig_roc" width="512" height="512"> | <img src="docs/cm.png" alt="fig_cm" width="512" height="512">
+<img src="docs/roc.png" alt="fig_roc" width="420" height="420"> | <img src="docs/cm.png" alt="fig_cm" width="420" height="420">
 
 ## Additional Notes
 
