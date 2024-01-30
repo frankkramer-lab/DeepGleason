@@ -1,6 +1,5 @@
 # DeepGleason: a System for Automated Gleason Grading of Prostate Cancer using Deep Neural Networks
 
-[![shield_python](https://img.shields.io/pypi/pyversions/DeepGleason?style=flat-square)](https://www.python.org/)
 [![shield_build](https://img.shields.io/github/actions/workflow/status/frankkramer-lab/DeepGleason/build-package.yml?branch=master&style=flat-square)](https://github.com/frankkramer-lab/DeepGleason)
 [![shield_license](https://img.shields.io/github/license/frankkramer-lab/DeepGleason?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
