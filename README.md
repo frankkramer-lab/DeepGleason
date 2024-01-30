@@ -113,9 +113,7 @@ This pipeline was based on AUCMEDI, which is an in-house developed open-source f
 
 We were able to achieve a strong model for Gleason grading in prostata cancer.
 
-ROC Curve    |  Confusion Matrix
-:-------------------------:|:-------------------------:
-<img src="docs/roc.png" alt="fig_roc" width="420" height="420"> | <img src="docs/cm.png" alt="fig_cm" width="420" height="420">
+![figure_performance](docs/performance.png)
 
 ## Additional Notes
 
